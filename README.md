@@ -1,29 +1,29 @@
-# Proiect-Baze-de-Date
-## Gradina Zoo
-Aceasta baza de date reprezinta un model de management al unei gradini zoologice, avand o structura relationala, bazata pe tabele interconectate intre ele prin chei primare si chei externe. Astfel putem stoca si gestiona date despre: gradina zoo, angajati, animale, specii, custi, locatii, spectacole, bilete, leguturi, vizitatori, program, ingrijire.
-### Tabela GRADINA_ZOO:
-- stocheaza informatii despre gradina zoologica precum marimea acesteia si orasul din care face parte. Aceasta este in relatie one to many cu tabela ANGAJAT, in relatie one to many cu tabela ANIMAL, in relatie one to many cu tabela SPECTACOL, in relatie one to one cu tabela PROGRAM si in relatie one to many cu tabela VIZITATOR.
-### Tabela ANGAJAT: 
-- stocheaza informatii despre angajati precum nume, prenume, varsta, gen si salariu. Aceasta este in relatie many to one cu tabela GRADINA_ZOO si in relatie many to one cu tabela INGRIJIRE.
-### Tabela ANIMAL:
-- stocheaza informatii despre animalele din gradina zoologica precum: categoria acestora, numarul acestora, precum si numele acestora. Aceasta este in relatie many to one cu tabela GRADINA_ZOO, in relatie many to one cu tabela LEGATURA, in relatie one to many cu tabela SPECIE si in relatie many to one cu tabela INGRIJIRE.
-### Tabela BILET:
-- stocheaza informatii despre biletele de la spectacolele din gradina zoologica precum: pretul acestuia si categoria acestuia. Aceasta este in relatie many to one cu tabela SPECTACOL.
-### Tabela SPECTACOL:
-- stocheaza informatii despre spectacolele care se desfasoara in gradina zoologica precum: ora si numarul maxim de locuri. Aceasta este in relatie one to many cu tabela BILET, in relatie many to one cu tabela LEGATURI si in relatie many to one cu tabela GRADINA_ZOO si in relatie one to one cu tabela ORA.
-### Tabela LEGATURA:
-- face legatura intre tabela ANIMAL si tabela SPECTACOL ca sa transforme o relatie many to many in doua, una one to many intre tabela LEGATURA si tabela ANIMAL si una many to one intre tabela SPECTACOL si tabela LEGATURA.
-### Tabela SPECIE:
-- stocheaza informatii despre speciile de animale precum: rasa acestora si numarul de familii. Aceasta este intr-o relatie one to many cu tabela ANIMAL.
-### Tabela CUSCA:
-- stocheaza informatii despre custile de animale precum: materialul acestora si dimensiunea acestora. Aceasta este in relatie many to one cu tabela LOCATIE si in relatie many to one cu tabela INGRIJIRE.
-### Tabela LOCATIE:
-- stocheaza informatii despre locurile din gradina zoologica in care se afla fiecare cusca precum: pozitiile acestora si distanta de la intrare in gradina zoologica. Acesta este in relatie one to many cu tabela CUSCA.
-### Tabela VIZITATOR:
-- stocheaza informatii despre vizitatorii din gradina zoologica precum: categoria de varsta a acestora. Aceasta este in relatie many to one cu tabela GRADINA_ZOO.
-### Tabela PROGRAM:
-- stocheaza informatii despre programul gradinii zoologice precum: zua saptamanii, ora de deschidere si ora de inchidere. Aceasta este in relatie one to one cu tabela GRADINA_ZOO.
-### Tabela INGRIJIRE:
-- face legatura dintre tabela ANIMAL, tabela ANGAJAT si tabela CUSCA ca sa transforme 3 relatii many to many in 3,una one to many intre tabela ANGAJAT si tabela INGRIJIRE, una one to many intre tabela CUSCA si tabela INGRIJIRE si alta one to many intre tabela ANIMAL si tabela INGRIJIRE.
-### Tabela ORA:
--stocheaza informatii despre ora la care este programat spectacol precum: ora. Aceasta este in relatie one to one cu tabela SPECTACOL.
+# Zoo Database Project
+## Zoo Garden
+This database represents a management model of a zoo, having a relational structure, based on interconnected tables through primary and foreign keys. Thus, we can store and manage data about: the zoo, employees, animals, species, cages, locations, shows, tickets, connections, visitors, schedule, care.
+### ZOO_GARDEN Table:
+- stores information about the zoo such as its size and the city it belongs to. It is in a one to many relationship with the EMPLOYEE table, one to many with the ANIMAL table, one to many with the SHOW table, one to one with the SCHEDULE table, and one to many with the VISITOR table.
+### EMPLOYEE Table: 
+- stores information about employees such as name, first name, age, gender, and salary. It is in a many to one relationship with the ZOO_GARDEN table and many to one with the CARE table.
+### ANIMAL Table:
+- stores information about the animals in the zoo such as: their category, number, and names. It is in a many to one relationship with the ZOO_GARDEN table, many to one with the CONNECTION table, one to many with the SPECIES table, and many to one with the CARE table.
+### TICKET Table:
+- stores information about tickets for the zoo's shows such as: the price and category. It is in a many to one relationship with the SHOW table.
+### SHOW Table:
+- stores information about the shows taking place in the zoo such as: the time and the maximum number of seats. It is in a one to many relationship with the TICKET table, many to one with the CONNECTIONS table, many to one with the ZOO_GARDEN table, and one to one with the TIME table.
+### CONNECTION Table:
+- links the ANIMAL table and the SHOW table to turn a many to many relationship into two, one being one to many between the CONNECTION table and the ANIMAL table and the other being many to one between the SHOW table and the CONNECTION table.
+### SPECIES Table:
+- stores information about animal species such as: their breed and the number of families. It is in a one to many relationship with the ANIMAL table.
+### CAGE Table:
+- stores information about animal cages such as: their material and size. It is in a many to one relationship with the LOCATION table and many to one with the CARE table.
+### LOCATION Table:
+- stores information about the locations in the zoo where each cage is such as: their positions and distance from the entrance to the zoo. It is in a one to many relationship with the CAGE table.
+### VISITOR Table:
+- stores information about the zoo's visitors such as: their age category. It is in a many to one relationship with the ZOO_GARDEN table.
+### SCHEDULE Table:
+- stores information about the zoo's schedule such as: the day of the week, opening hour, and closing hour. It is in a one to one relationship with the ZOO_GARDEN table.
+### CARE Table:
+- links the ANIMAL table, the EMPLOYEE table, and the CAGE table to turn 3 many to many relationships into 3, one being one to many between the EMPLOYEE table and the CARE table, one to many between the CAGE table and the CARE table, and another one to many between the ANIMAL table and the CARE table.
+### TIME Table:
+- stores information about the time when the show is scheduled such as: the hour. It is in a one to one relationship with the SHOW table.
